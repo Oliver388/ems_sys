@@ -2,12 +2,15 @@
 
 
 
-<mapper namespace="com.ling.dao.UserDAO">
+<mapper namespace="com.ling.ems_vue.dao.UserDao">
 
     <!--save-->
     <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
         insert into t_user values (#{id},#{username},#{realname},#{password},#{sex},#{status},#{registerTime})
     </insert>
 
-
+    <!--findByUsername-->
+    <select id="findByUsername" parameterType="String" resultType="User">
+        select * from t_user where username=#{username}
+    </select>
 </mapper>
