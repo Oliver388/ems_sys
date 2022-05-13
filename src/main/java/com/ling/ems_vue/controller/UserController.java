@@ -28,8 +28,9 @@ public class UserController {
     /**
      * 用来处理用户登录
      */
-    @PostMapping("login")
+    @PostMapping("/login")
     public Map<String,Object> login(@RequestBody User user){
+        log.info("当前登录用户的信息: [{}]",user.toString());
         Map<String,Object> map = new HashMap<>();
         try {
             User userDB = userService.login(user);
